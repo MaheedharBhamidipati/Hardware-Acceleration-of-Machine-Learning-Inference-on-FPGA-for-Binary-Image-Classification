@@ -2,7 +2,7 @@
 
 
 ![FPGA](https://img.shields.io/badge/Platform-FPGA-blue)
-![Verilog](https://img.shields.io/badge/Language-Verilog-orange)
+![Verilog & System Verilog](https://img.shields.io/badge/Language-Verilog-orange)
 ![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
