@@ -1,144 +1,242 @@
-# Hardware-Acceleration-of-Machine-Learning-Inference-on-FPGA-for-Binary-Image-Classification
-FPGA-based hardware acceleration of machine learning inference for efficient binary image classification using optimized digital architectures.
-# Hardware Acceleration of Machine Learning Inference on FPGA for Binary Image Classification
+# 🚀 Hardware Acceleration of Machine Learning Inference on FPGA for Binary Image Classification
 
-## Overview
-This project presents a hardware-oriented implementation of a machine learning inference pipeline for **binary image classification using FPGA acceleration**. The system focuses on improving computational efficiency, reducing latency, and enabling real-time classification by implementing optimized preprocessing and classification modules in hardware.
 
-The overall workflow includes **image preprocessing, feature extraction, classification, and hardware deployment**, forming an end-to-end FPGA-based machine learning inference system.
-
----
-
-## System Architecture
-
-The architecture diagram illustrates the **complete processing pipeline** used for binary image classification.
-
-The pipeline consists of the following stages:
-
-1. Image acquisition  
-2. Preprocessing and normalization  
-3. Feature extraction  
-4. Machine learning inference  
-5. FPGA hardware implementation  
-6. Classification output
-
-The architecture highlights how software-based machine learning algorithms are transformed into **hardware-compatible modules** for efficient execution on FPGA.
+![FPGA](https://img.shields.io/badge/Platform-FPGA-blue)
+![Verilog](https://img.shields.io/badge/Language-Verilog-orange)
+![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado-green)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
-## Image Preprocessing Pipeline
+## 📌 Overview
+This project presents a **hardware-accelerated machine learning inference system** implemented on FPGA for **binary image classification**. The objective is to achieve **low-latency, energy-efficient, and real-time classification** by transforming traditional software-based ML models into optimized hardware architectures.
 
-The preprocessing figures represent the sequence of operations applied to the input images before classification. These steps ensure that the data is consistent and suitable for hardware-based inference.
-
-The preprocessing stage includes:
-
-- Image resizing to reduce computational complexity  
-- Conversion to grayscale for simplified processing  
-- Noise reduction and normalization  
-- Feature enhancement to highlight relevant patterns
-
-These operations reduce input variability and improve classification reliability while maintaining a **hardware-efficient data representation**.
+The system integrates **image preprocessing, feature extraction, and classification modules** into a complete FPGA-based pipeline.
 
 ---
 
-## Feature Extraction Representation
-
-The feature extraction diagrams demonstrate how meaningful information is derived from the processed images.
-
-Key aspects illustrated include:
-
-- Identification of discriminative visual patterns  
-- Extraction of relevant spatial features  
-- Transformation of image data into structured feature vectors
-
-This stage converts raw pixel data into a format suitable for machine learning inference while minimizing redundant information.
+## 🎯 Key Objectives
+- Accelerate ML inference using FPGA
+- Reduce latency and power consumption
+- Enable real-time classification on edge devices
+- Optimize ML models for hardware deployment
 
 ---
 
-## Machine Learning Classification Model
+## 🧠 Motivation
+Traditional platforms:
+- **CPU** → Limited parallelism  
+- **GPU** → High power consumption  
 
-The model representation shows the structure of the classifier used for binary image categorization.
-
-The classifier performs the following tasks:
-
-- Accepts extracted features as input  
-- Processes features through optimized inference logic  
-- Produces a binary output representing the predicted class
-
-The model is optimized to maintain **high classification performance while being compatible with FPGA hardware constraints**.
-
----
-
-## FPGA Hardware Architecture
-
-The hardware architecture diagram illustrates how the inference pipeline is mapped onto FPGA resources.
-
-Key modules include:
-
-- Input data interface  
-- Preprocessing unit  
-- Feature processing module  
-- Classification engine  
-- Output interface
-
-The design focuses on **parallel computation, pipelined processing, and resource-efficient arithmetic operations**, enabling faster inference compared to traditional software execution.
+👉 **FPGA Advantage:**
+- Parallel processing  
+- Low power consumption  
+- Deterministic execution  
+- Custom hardware optimization  
 
 ---
 
-## Hardware Data Flow
+## 🏗️ System Architecture
 
-The hardware data flow figures demonstrate how data moves through the FPGA modules.
+### 🔄 End-to-End Pipeline
+Input Image → Preprocessing → Feature Extraction → ML Inference → FPGA → Output
 
-The sequence includes:
 
-1. Image data loading  
-2. Hardware preprocessing execution  
+### 🧩 Pipeline Stages
+1. Image Acquisition  
+2. Preprocessing  
+3. Feature Extraction  
+4. Classification  
+5. Hardware Execution (FPGA)  
+6. Output Generation  
+
+---
+
+## 🖼️ Image Preprocessing
+
+To make the system hardware-efficient, images undergo aggressive preprocessing:
+
+- RGB → Grayscale conversion  
+- Grayscale → Binary (Thresholding)  
+- Image resizing (128×128 → 8×8)  
+
+### ⚖️ Trade-off
+| Resolution | Accuracy | Hardware Cost |
+|------------|----------|---------------|
+| High       | High     | Very High     |
+| Low (8×8)  | Acceptable | Very Low     |
+
+👉 Selected configuration: **8×8 resolution for optimal balance**
+
+---
+
+## 🔍 Feature Extraction
+- Binary images converted into feature vectors  
+- Example: 8×8 Image → 64 Features
+
+
+- Captures:
+  - Shape  
+  - Edges  
+  - Structural patterns  
+
+---
+
+## 🤖 Machine Learning Models
+
+### 🔹 1. K-Nearest Neighbors (KNN)
+- Uses distance-based classification  
+- Optimized using:
+  - XOR operation instead of subtraction  
+  - Hamming distance instead of Euclidean  
+
+✅ Benefits:
+- Low complexity  
+- Parallel execution on FPGA  
+
+---
+
+### 🔹 2. Convolutional Neural Network (CNN)
+- Lightweight architecture:
+  - Convolution (3×3)
+  - Pooling (2×2)
+  - Fully Connected Layer  
+
+- Hardware optimizations:
+  - Binary inputs  
+  - Fixed-point arithmetic  
+  - Reduced multiplications  
+
+✅ Benefits:
+- Efficient feature extraction  
+- Balanced accuracy and performance  
+
+---
+
+### 🔹 3. Decision Tree (DT)
+- Rule-based classification: IF feature ≤ threshold → Left
+                              ELSE → Right
+
+
+✅ Benefits:
+- Minimal computation  
+- Very low power usage  
+- Fast inference  
+
+---
+
+## ⚙️ FPGA Hardware Architecture
+
+### 🔧 Core Modules
+- Input Buffer (BRAM)  
+- Preprocessing Unit  
+- Feature Processing Unit  
+- Classification Engine (CNN / KNN / DT)  
+- Control Unit (FSM)  
+- Output Interface  
+
+---
+
+## 🔄 Dataflow Design
+
+### Pipeline Stages:
+1. Input buffering  
+2. Preprocessing  
 3. Feature computation  
-4. Classification decision generation  
-5. Output transmission
-
-This structured flow allows the system to achieve **low-latency inference and improved throughput**.
+4. Classification  
 
 ---
 
-## Experimental Output Representation
+## ⚡ Optimization Techniques
 
-The result figures illustrate the final classification output generated by the FPGA system.
-
-They show:
-
-- Correct classification of binary image categories  
-- Performance consistency across test samples  
-- Effectiveness of the hardware-accelerated inference pipeline
-
-These outputs demonstrate the capability of the system to perform **reliable real-time image classification using FPGA acceleration**.
+- Binary image representation  
+- Fixed-point arithmetic (8-bit)  
+- XOR-based distance computation  
+- Parallel processing  
+- Pipelined architecture  
+- BRAM-based memory storage  
 
 ---
 
-## Tools and Technologies
+## 📊 Performance Highlights
 
-- Verilog / Hardware Description Language
-- FPGA platform
-- Xilinx Vivado
-- ModelSim
-- MATLAB / Python for preprocessing and dataset preparation
+- Real-time inference capability  
+- Low power consumption  
+- Efficient hardware utilization  
+- Accuracy up to ~80%  
+
+---
+## 📂 Project Structure
+📦 FPGA-ML-Classification
+┣ 📂 src
+┃ ┣ 📜 knn.v
+┃ ┣ 📜 cnn.v
+┃ ┣ 📜 decision_tree.v
+┃ ┗ 📜 top_module.v
+┣ 📂 testbench
+┃ ┗ 📜 tb_top.v
+┣ 📂 preprocessing
+┃ ┗ 📜 preprocess.py
+┣ 📂 dataset
+┣ 📂 results
+┣ 📜 README.md
+┗ 📜 report.pdf
+
+---
+## 🔬 Key Contributions
+
+- Hardware implementation of:
+  - KNN  
+  - CNN  
+  - Decision Tree  
+
+- Measurement-aware design considering:
+  - Latency  
+  - Power  
+  - Resource utilization  
+  - Timing constraints  
+
+- Optimized inference pipeline for FPGA  
 
 ---
 
-## Applications
+## 🛠️ Tools & Technologies
 
-This hardware-accelerated machine learning framework can be extended to:
-
-- Embedded vision systems
-- Edge AI devices
-- Smart agriculture monitoring
-- Industrial inspection
-- Real-time image classification systems
+- Verilog HDL  
+- Xilinx Vivado  
+- ModelSim  
+- FPGA (Zynq-7 ZC702)  
+- MATLAB / Python (Preprocessing & Dataset)  
 
 ---
 
-## Author
+## 🌍 Applications
 
-Maheedhar Bhamidipati  
+- Medical image classification (Malaria detection)  
+- Edge AI systems  
+- Embedded vision applications  
+- Smart healthcare systems  
+- Real-time image processing  
+
+---
+
+## 🔮 Future Scope
+
+- Support for multi-class classification  
+- Integration with IoT systems  
+- Higher resolution optimization  
+- Deployment on edge AI hardware  
+- FPGA + AI co-design frameworks  
+
+---
+
+## 📎 Conclusion
+This project demonstrates that **FPGA-based machine learning inference** can significantly improve **speed, energy efficiency, and real-time performance**, making it highly suitable for **embedded and edge AI applications**.
+
+---
+
+## 👨‍💻 Author
+**V N S S S R Maheedhar Bhamidipati**  
 M.Tech VLSI Design  
 Amrita School of Engineering, Bengaluru
