@@ -5,7 +5,7 @@
 ![Verilog](https://img.shields.io/badge/Language-Verilog-orange)
 ![Vivado](https://img.shields.io/badge/Tool-Xilinx%20Vivado-green)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 
 ---
 
