@@ -1,3 +1,15 @@
+<p align="center">
+  <img src="FPGA.png" width="100%">
+</p>
+
+<h1 align="center"> FPGA + AIML </h1>
+
+<p align="center">
+Hardware Acceleration of Machine Learning Inference on FPGA for Binary Image Classification
+
+</p>
+
+
 # 🚀 Hardware Acceleration of Machine Learning Inference on FPGA for Binary Image Classification
 
 
